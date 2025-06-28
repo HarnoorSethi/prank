@@ -37,9 +37,6 @@ tell application "Finder"
     end repeat
 end tell
 
-tell application "Terminal"
-    do script ""
-end tell
 APPLE_SCRIPT
 
 }
