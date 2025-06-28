@@ -28,6 +28,23 @@ speak_with_volume() {
   osascript -e "set volume output volume $initialVolume"
 }
 
+open_windows() {
+  osascript <<APPLE_SCRIPT
+tell application "Finder"
+    activate
+    repeat 12 times
+        make new Finder window
+    end repeat
+end tell
+
+tell application "Terminal"
+    do script ""
+end tell
+APPLE_SCRIPT
+
+}
+
+# Sequence begins
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 
 speak_with_volume "Executing." 160
@@ -59,28 +76,8 @@ sleep 1
 
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 
-# --- New part: Open 2 Finder windows ---
-osascript -e '
-tell application "Finder"
-    activate
-    repeat 2 times
-        make new Finder window
-    end repeat
-end tell
-'
-
-speak_with_volume "Opening some windows for you." 150
-sleep 2
-
-# --- New part: Open Safari to example.com ---
-osascript -e '
-tell application "Safari"
-    open location "https://example.com"
-    activate
-end tell
-'
-
-speak_with_volume "Launching a suspicious website." 150
+# Open Finder, Safari, and Terminal windows
+open_windows
 
 sleep 5
 
@@ -100,3 +97,4 @@ if ! grep -q "$PRANK_SCRIPT" "$ZSHRC"; then
 fi
 
 echo "✅ Prank script installed. It will run whenever Zsh starts (e.g., Terminal or VSCode)."
+
