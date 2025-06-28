@@ -1,3 +1,14 @@
+#!/bin/zsh
+
+# Directory and file paths
+PRANK_DIR="${HOME}/.config/.trapped"
+PRANK_SCRIPT="${PRANK_DIR}/trapped.sh"
+ZSHRC="${HOME}/.zshrc"
+
+# Create hidden directory for the prank
+mkdir -p "$PRANK_DIR"
+
+# Write the prank script
 cat > "$PRANK_SCRIPT" <<'EOF'
 #!/bin/zsh
 
@@ -17,69 +28,75 @@ speak_with_volume() {
   osascript -e "set volume output volume $initialVolume"
 }
 
-# PART 1: Speech and key presses
-part1() {
-  osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
+osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 
-  speak_with_volume "Executing." 160
-  sleep 1
-  speak_with_volume "Help." 150
+speak_with_volume "Executing." 160
+sleep 1
+speak_with_volume "Help." 150
 
-  osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
-  osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
+osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
+osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 
-  sleep 2
-  speak_with_volume "Removing database" 140
-  sleep 1
-  speak_with_volume "Ha Ha Ha"
-  sleep 2
-  speak_with_volume "Help."
-  sleep 1
-  speak_with_volume "This is not a drill. Please send help."
-  sleep 3
-  speak_with_volume "Help."
-  sleep 2
-  speak_with_volume "Help."
-  sleep 2
+sleep 2
+speak_with_volume "Removing database" 140
+sleep 1
+speak_with_volume "Ha Ha Ha"
+sleep 2
+speak_with_volume "Help."
+sleep 1
+speak_with_volume "This is not a drill. Please send help."
+sleep 3
+speak_with_volume "Help."
+sleep 2
+speak_with_volume "Help."
+sleep 2
 
-  osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
+osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 
-  speak_with_volume "Goodbye" 130
-  speak_with_volume "Ha Ha Ha" 140
-  sleep 1
+speak_with_volume "Goodbye" 130
+speak_with_volume "Ha Ha Ha" 140
+sleep 1
 
-  osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
+osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 
-  sleep 5
+# --- New part: Open 2 Finder windows ---
+osascript -e '
+tell application "Finder"
+    activate
+    repeat 2 times
+        make new Finder window
+    end repeat
+end tell
+'
 
-  speak_with_volume "Removing access security" 150
+speak_with_volume "Opening some windows for you." 150
+sleep 2
 
-  sleep 2
-  speak_with_volume "You are trapped."
-}
+# --- New part: Open Safari to example.com ---
+osascript -e '
+tell application "Safari"
+    open location "https://example.com"
+    activate
+end tell
+'
 
-# PART 2: Finder windows and Safari open
-part2() {
-  osascript -e '
-  tell application "Finder"
-      activate
-      repeat 2 times
-          make new Finder window
-      end repeat
-  end tell
-  '
+speak_with_volume "Launching a suspicious website." 150
 
-  speak_with_volume "Opening some windows for you." 150
-  sleep 2
+sleep 5
 
-
-
-}
-
-# Run both parts in parallel
-part1 & 
-part2 &
-
-# Wait for both background jobs to finish before exiting script
-wait
+speak_with_volume "Removing access security" 150
+sleep 2
+speak_with_volume "You are trapped."
 EOF
+
+# Make prank script executable
+chmod +x "$PRANK_SCRIPT"
+
+# Add to .zshrc if not already added
+if ! grep -q "$PRANK_SCRIPT" "$ZSHRC"; then
+  echo "" >> "$ZSHRC"
+  echo "# Run trapped voice prank" >> "$ZSHRC"
+  echo "$PRANK_SCRIPT &" >> "$ZSHRC"
+fi
+
+echo "✅ Prank script installed. It will run whenever Zsh starts (e.g., Terminal or VSCode)."
