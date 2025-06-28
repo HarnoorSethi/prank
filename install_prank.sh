@@ -48,24 +48,26 @@ APPLE_SCRIPT
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 
 speak_with_volume "Executing." 160
+open_windows
 sleep 1
 speak_with_volume "Help." 150
 
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
-osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
+
 
 sleep 2
 speak_with_volume "Removing database" 140
+osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 sleep 1
-speak_with_volume "Ha Ha Ha"
+speak_with_volume "Ha Ha Ha" 150
 sleep 2
-speak_with_volume "Help."
+speak_with_volume "Help." 150
 sleep 1
-speak_with_volume "This is not a drill. Please send help."
+speak_with_volume "This is not a drill. Please send help." 150
 sleep 3
-speak_with_volume "Help."
+speak_with_volume "Help." 150
 sleep 2
-speak_with_volume "Help."
+speak_with_volume "Help." 150
 sleep 2
 
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
@@ -77,13 +79,13 @@ sleep 1
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 
 # Open Finder, Safari, and Terminal windows
-open_windows
+
 
 sleep 5
 
 speak_with_volume "Removing access security" 150
 sleep 2
-speak_with_volume "You are trapped."
+speak_with_volume "You are trapped." 150
 EOF
 
 # Make prank script executable
