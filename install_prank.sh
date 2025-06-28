@@ -20,9 +20,9 @@ speak_with_volume() {
   osascript -e 'set volume output volume 90'
 
   if [[ -n "$rate" ]]; then
-    say -v "Whisper" -r "$rate" "$message"
+    say -r "$rate" "$message"
   else
-    say -v "Whisper" "$message"
+    say "$message"
   fi
 
   osascript -e "set volume output volume $initialVolume"
