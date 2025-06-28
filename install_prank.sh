@@ -36,7 +36,9 @@ tell application "Finder"
         make new Finder window
     end repeat
 end tell
-
+tell application "Terminal"
+    do script ""
+end tell
 APPLE_SCRIPT
 
 }
