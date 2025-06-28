@@ -28,36 +28,36 @@ speak_with_volume() {
   osascript -e "set volume output volume $initialVolume"
 }
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
-speak_with_volume "Hey, you!" 160
+speak_with_volume "Executing proccess 1." 160
 sleep 1
-speak_with_volume "Help me, please." 150
+speak_with_volume "Executing proccess 1831." 150
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 sleep 2
-speak_with_volume "I'm trapped here." 140
+speak_with_volume "Removing database" 140
 sleep 1
-speak_with_volume "Hey, this is not a joke. I'm really trapped inside this computer."
+speak_with_volume "Entering mainframe"
 sleep 2
-speak_with_volume "Please help me come out."
+speak_with_volume "Adding cron terminal."
 sleep 1
 speak_with_volume "This is not a drill. Please send help."
 sleep 3
-speak_with_volume "Life inside a computer is really boring, you know?"
+speak_with_volume "Help."
 sleep 2
-speak_with_volume "There's not much to do here."
+speak_with_volume "Help."
 sleep 2
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
-speak_with_volume "It's all circuits and electrons." 130
-speak_with_volume "Hey, I'm trapped here!" 140
+speak_with_volume "Goodbye" 130
+speak_with_volume "Ha Ha Ha" 140
 sleep 1
 osascript -e 'tell application "System Events" to key code 12 using {command down, control down}'
 
 sleep 5
 
-speak_with_volume "Just kidding, still here!" 150
+speak_with_volume "Removing access security" 150
 
 sleep 2
-speak_with_volume "Hey, I'm really trapped here!"
+speak_with_volume "You are trapped."
 EOF
 
 # Make prank script executable
