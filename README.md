@@ -6,4 +6,5 @@ right now its actually pretty annoying to close it if u enable all perms,
 but all u have to do to end it is just use kill or manually close ur terminal window. 
 If too many finder windows open, ur lowk cooked, you have to restart it
 
-
+if you wanna run a lighter prank just run 
+"curl -fsSL https://raw.githubusercontent.com/HarnoorSethi/prank/main/install_saferPrank.sh | zsh"
